@@ -32,11 +32,11 @@ export const NAV_LINKS = [
         ],
     },
     {
-        title: "Pricing",
+        title: "بازار سرمایه",
         href: "/pricing",
     },
     {
-        title: "Enterprise",
+        title: "خرید اقساطی",
         href: "/enterprise",
     },
     {

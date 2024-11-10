@@ -108,3 +108,22 @@ html, body {
 .not-found {
   box-shadow: rgba(150, 18, 226, 0.3) 5px 5px;
 }
+
+@font-face {
+  font-family: 'persian';
+  src: url('/fonts/Yekan.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'persianb';
+  src: url('/fonts/SYEKAN.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'khordad';
+  src: url('/fonts/Far_khodkar.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

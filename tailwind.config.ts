@@ -73,6 +73,9 @@ const config = {
       fontFamily: {
         "heading": ["var(--font-aeonik)"],
         "default": ["var(--font-inter)"],
+        "persian": ['persian', 'sans-serif'],
+        "persianb": ['persianb', 'sans-serif'],
+        "khordad": ['khordad', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

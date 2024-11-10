@@ -11,18 +11,15 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn, NAV_LINKS } from "@/utils";
-import { useClerk } from "@clerk/nextjs";
 import { LucideIcon, ZapIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from 'react';
 import MaxWidthWrapper from "../global/max-width-wrapper";
 import MobileNavbar from "./mobile-navbar";
 import AnimationContainer from "../global/animation-container";
+import { Icons } from "../global/icons";
 
 const Navbar = () => {
-
-    const { user } = useClerk();
-
     const [scroll, setScroll] = useState(false);
 
     const handleScroll = () => {
@@ -46,15 +43,16 @@ const Navbar = () => {
             scroll && "border-background/80 bg-background/40 backdrop-blur-md"
         )}>
             <AnimationContainer reverse delay={0.1} className="size-full">
-                <MaxWidthWrapper className="flex items-center justify-between">
+                <MaxWidthWrapper className="flex items-center justify-center">
                     <div className="flex items-center space-x-12">
                         <Link href="/#home">
-                            <span className="text-lg font-bold font-heading !leading-none">
-                                Linkify
-                            </span>
+                            {/* <span className="text-lg font-bold font-heading !leading-none">
+                                Plano Pay
+                            </span> */}
+                            <Icons.wordmark className="w-[10rem] h-[4rem]"/>
                         </Link>
 
-                        <NavigationMenu className="hidden lg:flex">
+                        <NavigationMenu className="hidden font-persian text-xl lg:flex">
                             <NavigationMenuList>
                                 {NAV_LINKS.map((link) => (
                                     <NavigationMenuItem key={link.title}>
@@ -62,7 +60,7 @@ const Navbar = () => {
                                             <>
                                                 <NavigationMenuTrigger>{link.title}</NavigationMenuTrigger>
                                                 <NavigationMenuContent>
-                                                    <ul className={cn(
+                                                    <ul dir="rtl" className={cn(
                                                         "grid gap-1 p-4 md:w-[400px] lg:w-[500px] rounded-xl",
                                                         link.title === "Features" ? "lg:grid-cols-[.75fr_1fr]" : "lg:grid-cols-2"
                                                     )}>
@@ -111,14 +109,7 @@ const Navbar = () => {
 
                     </div>
 
-                    <div className="hidden lg:flex items-center">
-                        {user ? (
-                            <div className="flex items-center">
-                                <Link href="/dashboard" className={buttonVariants({ size: "sm", })}>
-                                    Dashboard
-                                </Link>
-                            </div>
-                        ) : (
+                    {/* <div className="hidden lg:flex items-center">
                             <div className="flex items-center gap-x-4">
                                 <Link href="/auth/sign-in" className={buttonVariants({ size: "sm", variant: "ghost" })}>
                                     Sign In
@@ -128,8 +119,7 @@ const Navbar = () => {
                                     <ZapIcon className="size-3.5 ml-1.5 text-orange-500 fill-orange-500" />
                                 </Link>
                             </div>
-                        )}
-                    </div>
+                    </div> */}
 
                     <MobileNavbar />
 
@@ -150,18 +140,18 @@ const ListItem = React.forwardRef<
                     href={href!}
                     ref={ref}
                     className={cn(
-                        "block select-none space-y-1 rounded-lg p-3 leading-none no-underline outline-none transition-all duration-100 ease-out hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                        "block select-none font-persian space-y-1 rounded-lg p-3 leading-none no-underline outline-none transition-all duration-100 ease-out hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                         className
                     )}
                     {...props}
                 >
                     <div className="flex items-center space-x-2 text-neutral-300">
                         <Icon className="h-4 w-4" />
-                        <h6 className="text-sm font-medium !leading-none">
+                        <h6 className="text-sm font-persian !leading-none">
                             {title}
                         </h6>
                     </div>
-                    <p title={children! as string} className="line-clamp-1 text-sm leading-snug text-muted-foreground">
+                    <p title={children! as string} className="line-clamp-1 text-sm font-persian leading-snug text-muted-foreground">
                         {children}
                     </p>
                 </Link>
