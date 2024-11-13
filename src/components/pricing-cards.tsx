@@ -20,7 +20,7 @@ const PricingCards = () => {
 
     return (
         <Tabs defaultValue="monthly" className="w-full flex flex-col items-center justify-center">
-            <TabsList>
+            {/* <TabsList>
                 <MotionTabTrigger
                     value="monthly"
                     onClick={() => setActiveTab("monthly")}
@@ -59,48 +59,52 @@ const PricingCards = () => {
                         Yearly
                     </span>
                 </MotionTabTrigger>
-            </TabsList>
+            </TabsList> */}
 
             <TabsContent value="monthly" className="grid grid-cols-1 lg:grid-cols-3 gap-5 w-full md:gap-8 flex-wrap max-w-5xl mx-auto pt-6">
                 {PLANS.map((plan) => (
                     <Card
+                        dir="rtl"
                         key={plan.name}
                         className={cn(
                             "flex flex-col w-full border-border rounded-xl",
-                            plan.name === "Pro" && "border-2 border-purple-500"
+                            plan.name === "اسـنـپ پـی" && "border-2 border-purple-500"
                         )}
                     >
                         <CardHeader className={cn(
                             "border-b border-border",
-                            plan.name === "Pro" ? "bg-purple-500/[0.07]" : "bg-foreground/[0.03]"
+                            plan.name === "اسـنـپ پـی" ? "bg-purple-500/[0.07]" : "bg-foreground/[0.03]"
                         )}>
-                            <CardTitle className={cn(plan.name !== "Pro" && "text-muted-foreground", "text-lg font-medium")}>
+                            <div className="bg-white rounded-xl w-16 h-16">
+
+                            </div>
+                            <CardTitle className={cn(plan.name !== "Pro" && "text-muted-foreground", "text-lg font-persian")}>
                                 {plan.name}
                             </CardTitle>
                             <CardDescription>
                                 {plan.info}
                             </CardDescription>
-                            <h5 className="text-3xl font-semibold">
-                                ${plan.price.monthly}
+                            <h5 className="text-3xl font-persianb">
+                                سـود %{plan.price.monthly}
                                 <span className="text-base text-muted-foreground font-normal">
-                                    {plan.name !== "Free" ? "/month" : ""}
+                                    {/* {plan.name !== "Free" ? "/month" : ""} */}
                                 </span>
                             </h5>
                         </CardHeader>
-                        <CardContent className="pt-6 space-y-4">
+                        <CardContent className="pt-6 space-y-4 font-persian">
                             {plan.features.map((feature, index) => (
                                 <div key={index} className="flex items-center gap-2">
                                     <CheckCircleIcon className="text-purple-500 w-4 h-4" />
                                     <TooltipProvider>
                                         <Tooltip delayDuration={0}>
                                             <TooltipTrigger asChild>
-                                                <p className={cn(feature.tooltip && "border-b !border-dashed border-border cursor-pointer")}>
+                                                <p className={cn(feature.tooltip && "font-persian border-b !border-dashed border-border cursor-pointer")}>
                                                     {feature.text}
                                                 </p>
                                             </TooltipTrigger>
                                             {feature.tooltip && (
                                                 <TooltipContent>
-                                                    <p>{feature.tooltip}</p>
+                                                    <p className="font-persian">{feature.tooltip}</p>
                                                 </TooltipContent>
                                             )}
                                         </Tooltip>
@@ -108,11 +112,11 @@ const PricingCards = () => {
                                 </div>
                             ))}
                         </CardContent>
-                        <CardFooter className="w-full mt-auto">
+                        <CardFooter className="w-full mt-auto font-persian">
                             <Link
                                 href={plan.btn.href}
                                 style={{ width: "100%" }}
-                                className={buttonVariants({ className: plan.name === "Pro" && "bg-purple-500 hover:bg-purple-500/80 text-white" })}
+                                className={buttonVariants({ className: plan.name === "اسـنـپ پـی" && "bg-purple-500 hover:bg-purple-500/80 text-white" })}
                             >
                                 {plan.btn.text}
                             </Link>
@@ -126,12 +130,12 @@ const PricingCards = () => {
                         key={plan.name}
                         className={cn(
                             "flex flex-col w-full border-border rounded-xl",
-                            plan.name === "Pro" && "border-2 border-purple-500"
+                            plan.name === "اسـنـپ پـی" && "border-2 border-purple-500"
                         )}
                     >
                         <CardHeader className={cn(
                             "border-b border-border",
-                            plan.name === "Pro" ? "bg-purple-500/[0.07]" : "bg-foreground/[0.03]"
+                            plan.name === "اسـنـپ پـی" ? "bg-purple-500/[0.07]" : "bg-foreground/[0.03]"
                         )}>
                             <CardTitle className={cn(plan.name !== "Pro" && "text-muted-foreground", "text-lg font-medium")}>
                                 {plan.name}
@@ -182,7 +186,7 @@ const PricingCards = () => {
                             <Link
                                 href={plan.btn.href}
                                 style={{ width: "100%" }}
-                                className={buttonVariants({ className: plan.name === "Pro" && "bg-purple-500 hover:bg-purple-500/80 text-white" })}
+                                className={buttonVariants({ className: plan.name === "اسـنـپ پـی" && "bg-purple-500 hover:bg-purple-500/80 text-white" })}
                             >
                                 {plan.btn.text}
                             </Link>
